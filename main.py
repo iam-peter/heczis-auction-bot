@@ -32,6 +32,10 @@ class MyWidget(QtWidgets.QWidget):
         # Create button to call model with text input values
         self.button = QtWidgets.QPushButton("Calculate")
 
+        # Create hint label
+        self.hint = QtWidgets.QLabel("0: English, 1: Dutch", alignment=QtCore.Qt.AlignCenter)
+        self.hint.setFixedHeight(24)
+
         # Create font for result label
         self.font = QtGui.QFont()
         self.font.setPixelSize(40)
@@ -39,13 +43,14 @@ class MyWidget(QtWidgets.QWidget):
         # Create result label
         self.text = QtWidgets.QLabel("", alignment=QtCore.Qt.AlignCenter)
         self.text.setFont(self.font)
+        self.text.setTextFormat(QtCore.Qt.RichText)
 
         # Create vertical layout and add the grid, button, and result label
         self.layout = QtWidgets.QVBoxLayout(self)
 
         self.layout.addLayout(self.grid)
         self.layout.addWidget(self.button)
-
+        self.layout.addWidget(self.hint)
         self.layout.addWidget(self.text)
 
         # Connect clicked signal form button with magic slot
@@ -61,7 +66,7 @@ class MyWidget(QtWidgets.QWidget):
 
         # 0 - English auction
         # 1 - Dutch auction
-        self.text.setText("Model result {:.3f}\n{} auction".format(result, "Dutch" if round(result) else "English"))
+        self.text.setText("Model result {:.3f}<br><b>{} auction</b>".format(result, "Dutch" if round(result) else "English"))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
