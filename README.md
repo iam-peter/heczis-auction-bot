@@ -41,17 +41,11 @@ Activate the environment (Windows):
 env\Scripts\activate.bat
 ```
 
-### Installing PySide6
+### Installing PySide6 and TensorFlow
 
-Now you are ready to install the Qt for Python packages using `pip`. From the terminal, run the following command for the latest version:
+Now you are ready to install the Qt for Python and TensorFlow packages using `pip`. From the terminal, run the following command for the latest version:
 ```
-pip install pyside6
-```
-
-### Installing TensorFlow
-
-```
-pip install tensorflow
+pip install pyside6 tensorflow
 ```
 
 ## Usage
